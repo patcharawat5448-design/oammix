@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mix 🤍</title>
+
+<style>
+body{
+  margin:0;
+  padding:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white;
+  text-align:center;
+}
+.container{
+  padding-top:100px;
+}
+h1{
+  font-size:50px;
+  margin-bottom:20px;
+}
+.message{
+  font-size:22px;
+  margin:15px auto;
+  width:80%;
+  max-width:500px;
+  line-height:1.6;
+}
+.days{
+  font-size:30px;
+  font-weight:bold;
+  margin-top:30px;
+}
+.since{
+  margin-top:10px;
+  font-size:16px;
+  opacity:0.9;
+}
+button{
+  margin-top:40px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff4f81;
+  font-size:16px;
+  cursor:pointer;
+}
+button:hover{
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Mix ❤️</h1>
+
+<div class="message">
+โอมรักมิคกี้นะ คิดถึงมิกิม้ากมากตอนมิกิไม่อยู่
+</div>
+
+<div class="days" id="days"></div>
+
+<div class="since">
+ตั้งแต่วันที่ 30 กรกฎาคม 2024
+</div>
+
+<button onclick="toggleMusic()">เปิดเพลงของเรา 🎵</button>
+
+<audio id="bgm" loop>
+  <source src="Taylor Swift - Lover.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+const startDate = new Date("2024-07-30");
+const today = new Date();
+
+startDate.setHours(0,0,0,0);
+today.setHours(0,0,0,0);
+
+const diffTime = today - startDate;
+const diffDays = Math.floor(diffTime / (1000*60*60*24));
+
+document.getElementById("days").innerHTML =
+"เราอยู่ด้วยกันมาแล้ว " + diffDays + " วัน 🤍";
+
+let playing = false;
+
+function toggleMusic(){
+  const music = document.getElementById("bgm");
+  if(!playing){
+    music.play();
+    event.target.innerText = "หยุดเพลง 🤍";
+    playing = true;
+  } else {
+    music.pause();
+    event.target.innerText = "เปิดเพลงของเรา 🎵";
+    playing = false;
+  }
+}
+</script>
+
+</body>
+</html>
